@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "78624724400",
+    "project_id": "daiapp-8edeb",
+    "storage_bucket": "daiapp-8edeb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78624724400:android:3e5349e01856faaecd7275",
+        "android_client_info": {
+          "package_name": "com.baharudin.daiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78624724400-2it3mcde670od7sc02bo0scu6ehrcfti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvqe00U59e5DO2mo4d7GVHQFgpQ0rx1n0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78624724400-2it3mcde670od7sc02bo0scu6ehrcfti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RekomendasiDaiAct">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Rekomendasikan Dai"
+        android:textSize="24sp"
+        android:textColor="@color/green"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow" />
+
+    <ImageView
+        android:id="@+id/iv_foto"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:srcCompat="@drawable/ic_foto" />
+
+    <ImageView
+        android:id="@+id/bt_add_foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_foto"
+        app:layout_constraintEnd_toEndOf="@+id/iv_foto"
+        app:srcCompat="@drawable/ic_add_circle" />
+
+    <EditText
+        android:id="@+id/et_nama_dai"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="24dp"
+        style="@style/TextView.edit"
+        android:inputType="textPersonName"
+        android:hint="Nama"
+        android:drawableStart="@drawable/ic_person"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_foto" />
+
+    <EditText
+        android:id="@+id/et_alamat"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="10dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:padding="10dp"
+        android:drawableStart="@drawable/ic_home_24"
+        style="@style/TextView.edit"
+        android:inputType="textPersonName"
+        android:hint="Alamat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_nama_dai" />
+
+    <EditText
+        android:id="@+id/et_deskripsi_dai"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        style="@style/TextView.edit"
+        android:drawableStart="@drawable/ic_profesi"
+        android:padding="10dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:drawablePadding="10dp"
+        android:inputType="textPersonName"
+        android:hint="deskripsi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_alamat" />
+
+    <EditText
+        android:id="@+id/et_telpdai"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        style="@style/TextView.edit"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_phone"
+        android:padding="10dp"
+        android:inputType="number"
+        android:hint="Telepon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_deskripsi_dai" />
+
+    <Button
+        android:id="@+id/bt_rekomendasi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="Rekomendasikan"
+        style="@style/Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
