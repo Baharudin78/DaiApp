@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.baharudin.daiapp.HomeActivity
 import com.baharudin.daiapp.databinding.ActivityAdminDaiInfoBinding
 import com.baharudin.daiapp.model.Dai
 import com.google.firebase.database.*
@@ -45,7 +46,11 @@ class AdminDaiInfoAct : AppCompatActivity() {
                     dataSnapshot.ref.removeValue()
                 }
                 val intent = (Intent(this@AdminDaiInfoAct,AdminDaiListAct::class.java))
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
+                finish()
                 Toast.makeText(this@AdminDaiInfoAct, "berhasil", Toast.LENGTH_SHORT).show()
             }
 

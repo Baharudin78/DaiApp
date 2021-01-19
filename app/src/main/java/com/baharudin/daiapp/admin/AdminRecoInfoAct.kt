@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.baharudin.daiapp.HomeActivity
 import com.baharudin.daiapp.R
 import com.baharudin.daiapp.databinding.ActivityAdminRecoInfoBinding
 import com.baharudin.daiapp.model.Dai
@@ -42,16 +43,21 @@ class AdminRecoInfoAct : AppCompatActivity() {
                 for (dataSnapshot in snapshot.children) {
                     dataSnapshot.ref.removeValue()
                 }
-                startActivity(Intent(this@AdminRecoInfoAct,AdminDaiListAct::class.java))
+                val intent = (Intent(this@AdminRecoInfoAct,AdminRecoAct::class.java))
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
                 finish()
                 Toast.makeText(this@AdminRecoInfoAct, "berhasil", Toast.LENGTH_SHORT).show()
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
             }
 
         })
     }
+
+
 
 }

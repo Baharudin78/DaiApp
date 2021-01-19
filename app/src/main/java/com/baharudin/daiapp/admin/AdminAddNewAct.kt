@@ -118,7 +118,7 @@ class AdminAddNewAct : AppCompatActivity() {
 
     }
     private fun saveFirebase(url: String) {
-        databaseRef.child(dai.nama).addValueEventListener(object : ValueEventListener {
+        databaseRef.child(dai.nama).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 dai.foto = url
 
@@ -170,7 +170,7 @@ class AdminAddNewAct : AppCompatActivity() {
     }
 
     private fun checkUser(iNama: String, data: Dai) {
-        databaseRef.child(iNama).addValueEventListener(object : ValueEventListener {
+        databaseRef.child(iNama).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val dai = snapshot.getValue(Dai::class.java)
 
@@ -181,9 +181,16 @@ class AdminAddNewAct : AppCompatActivity() {
                     preference.setValue("deskripsi", data.deskripsi)
                     preference.setValue("telepon", data.telepon)
 
+                    val intent = (Intent(this@AdminAddNewAct,AdminDaiListAct::class.java))
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    finish()
+
                     Toast.makeText(
                             this@AdminAddNewAct,
-                            "Berhasil merekomndasikan dai",
+                            "Berhasil menambahkan dai",
                             Toast.LENGTH_SHORT
                     ).show()
                 }
