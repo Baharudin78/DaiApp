@@ -1,5 +1,6 @@
 package com.baharudin.daiapp.admin
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +26,7 @@ class AdminRecoAct : AppCompatActivity() {
 
         binding.rvRekoList.layoutManager = LinearLayoutManager(this)
 
+
         getRecomend()
     }
     private fun getRecomend(){
@@ -36,7 +38,7 @@ class AdminRecoAct : AppCompatActivity() {
                     dataList.add(reco!!)
                 }
                 binding.rvRekoList.adapter = ListDaiAdapter(dataList){
-
+                    startActivity(Intent(this@AdminRecoAct,AdminRecoInfoAct::class.java).putExtra("data_dai",it))
                 }
             }
 

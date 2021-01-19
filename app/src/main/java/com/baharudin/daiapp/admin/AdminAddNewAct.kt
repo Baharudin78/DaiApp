@@ -31,7 +31,7 @@ class AdminAddNewAct : AppCompatActivity() {
     private lateinit var iAlamat : String
     private lateinit var iDeskripsi : String
     private lateinit var iTelepon : String
-    lateinit var daiFoto : Dai
+    lateinit var dai : Dai
 
     private lateinit var  dataRef : DatabaseReference
     private lateinit var firebaseInstance : FirebaseDatabase
@@ -118,11 +118,11 @@ class AdminAddNewAct : AppCompatActivity() {
 
     }
     private fun saveFirebase(url: String) {
-        databaseRef.child(iNama).addValueEventListener(object : ValueEventListener {
+        databaseRef.child(dai.nama).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                daiFoto.foto = url
+                dai.foto = url
 
-                databaseRef.child(daiFoto.nama).setValue(daiFoto)
+                databaseRef.child(dai.nama).setValue(dai)
                 preference.setValue("foto","")
                 preference.setValue("foto", url)
 

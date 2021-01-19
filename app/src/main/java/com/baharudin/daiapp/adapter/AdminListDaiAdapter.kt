@@ -2,34 +2,43 @@ package com.baharudin.daiapp.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.TextView
-import com.baharudin.daiapp.R
+import androidx.recyclerview.widget.RecyclerView
+import com.baharudin.daiapp.databinding.AdminItemListDaiBinding
 import com.baharudin.daiapp.model.Dai
 
-class AdminListDaiAdapter(val mCx : Context,val layoutResId : Int,val daiList : List<Dai>) : ArrayAdapter<Dai>(mCx,layoutResId,daiList) {
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        return super.getView(position, convertView, parent)
+class AdminListDaiAdapter(private var list: List<Dai>, private var listener :(Dai)-> Unit) :RecyclerView.Adapter<AdminListDaiAdapter.AdminListDaiHolder>() {
+    lateinit var contextAdapter : Context
+    inner class AdminListDaiHolder(binding : AdminItemListDaiBinding) : RecyclerView.ViewHolder(binding.root){
 
-        val layoutInflater  = LayoutInflater.from(mCx)
-        val view = layoutInflater.inflate(layoutResId,null)
+        private var tvNamaDai : TextView = binding.tvNamadai
+        private var tvKeahlian : TextView = binding.tvKeahlian
+        private var tvAlamat : TextView = binding.tvAlamatdai
 
-        val tvNama : TextView = view.findViewById(R.id.tv_namadai)
-        val tvAlamat : TextView = view.findViewById(R.id.tv_alamatdai)
-        val tvDeskripsi : TextView = view.findViewById(R.id.tv_keahlian)
-        val tvHP : TextView = view.findViewById(R.id.tv_nohp)
+        fun bindItem(list : Dai,listener: (Dai) -> Unit){
+            tvNamaDai.text = list.nama
+            tvKeahlian.text = list.deskripsi
+            tvAlamat.text = list.alamat
 
-        val dai = daiList[position]
+            itemView.setOnClickListener {
+                listener(list)
+            }
+        }
 
-        tvNama.text = dai.nama
-        tvAlamat.text = dai.alamat
-        tvDeskripsi.text = dai.deskripsi
-        tvHP.text = dai.telepon
+    }
 
-        return view
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdminListDaiHolder {
+        val inflated = AdminItemListDaiBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        contextAdapter = parent.context
+        return AdminListDaiHolder(inflated)
+    }
 
+    override fun onBindViewHolder(holder: AdminListDaiHolder, position: Int) {
+        holder.bindItem(list[position],listener)
+    }
 
+    override fun getItemCount(): Int {
+        return list.size
     }
 }

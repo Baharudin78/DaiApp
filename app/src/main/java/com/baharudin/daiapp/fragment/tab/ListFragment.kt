@@ -1,5 +1,6 @@
 package com.baharudin.daiapp.fragment.tab
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.baharudin.daiapp.DetailDaiAct
 import com.baharudin.daiapp.R
 import com.baharudin.daiapp.adapter.ListDaiAdapter
 import com.baharudin.daiapp.databinding.FragmentListBinding
@@ -52,7 +54,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
                     dataList.add(dai!!)
                 }
                 binding.rvListDai.adapter = ListDaiAdapter(dataList){
-
+                    startActivity(Intent(requireContext(), DetailDaiAct::class.java).putExtra("data_dai",it))
                 }
             }
 
