@@ -7,7 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.baharudin.daiapp.DetailDaiAct
+import com.baharudin.daiapp.DaiInfoAct
 import com.baharudin.daiapp.R
 import com.baharudin.daiapp.adapter.ListDaiAdapter
 import com.baharudin.daiapp.databinding.FragmentSearchBinding
@@ -57,7 +57,7 @@ class SearchFragment : Fragment(R.layout.fragment_search){
                     dataList.add(dai!!)
                 }
                 binding.rvSearchdai.adapter = ListDaiAdapter(dataList){
-                     startActivity(Intent(requireContext(),DetailDaiAct::class.java).putExtra("data_dai",it))
+                     startActivity(Intent(requireContext(),DaiInfoAct::class.java).putExtra("data_dai",it))
                 }
                 binding.tvJumlahdai.setText("${dataList.size}")
             }

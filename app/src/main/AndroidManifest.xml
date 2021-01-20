@@ -21,9 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DaiApp">
+        <activity android:name=".DaiInfoAct" />
         <activity android:name=".admin.AdminRecoInfoAct" />
-        <activity android:name=".DetailDaiAct" />
-        <activity android:name=".admin.AdminUpdateDaiAct" />
         <activity android:name=".admin.AdminDaiInfoAct" />
         <activity android:name=".admin.AdminAddNewAct" />
         <activity android:name=".admin.AdminRecoAct" />
